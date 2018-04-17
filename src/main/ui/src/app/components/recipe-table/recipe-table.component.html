@@ -1,0 +1,56 @@
+<div id="recipe-table" class="ui-md-12 ui-g-12">
+  <p-dataTable [value]="recipes" selectionMode="single" [globalFilter]="gb" [(selection)]="selectedRecipe"
+               [rowsPerPageOptions]="[5, 10, 20]"
+               [loading]="isLoading" (onRowDblclick)="editRecipe()" rows="10" paginator="true" responsive="true"
+               reorderableColumns="true">
+    <p-header [ngClass]="{'data-table-header-hider': readOnlyTable || !showTableHeader}" class="ui-g">
+      <div class="ui-md-6 ui-g-12">
+        <button type="button" pButton icon="fa-plus" style="float:left" label="Add" (click)="addNewRecipe()"></button>
+        <button type="button" pButton icon="fa-edit" style="float:left" label="Edit" (click)="editRecipe()"
+                [disabled]="!selectedRecipe"></button>
+        <button type="button" pButton icon="fa-trash" style="float:left" label="Delete"
+                (click)="openConfirmationDialog()"
+                [disabled]="!selectedRecipe"></button>
+      </div>
+      <div class="ui-md-6 ui-g-12" style="text-align: right">
+        <i class="fa fa-search"></i>
+        <input #gb type="text" pInputText style="width: 75%" placeholder="Global Filter">
+      </div>
+    </p-header>
+    <p-column field="name" header="Name" [filter]="!readOnlyTable" [sortable]="!readOnlyTable"
+              filterMatchMode="contains"
+              filterPlaceholder="Search by"></p-column>
+    <p-column field="typeName" header="Category" [filter]="!readOnlyTable" [sortable]="!readOnlyTable"
+              filterMatchMode="contains"
+              filterPlaceholder="Search by"></p-column>
+    <p-column field="difficulty" header="Difficulty" [filter]="!readOnlyTable" [sortable]="!readOnlyTable"
+              filterMatchMode="contains"
+              filterPlaceholder="Search by"></p-column>
+    <p-column field="cookingTime" header="Cooking time" [filter]="!readOnlyTable" [sortable]="!readOnlyTable"
+              filterMatchMode="contains"
+              filterPlaceholder="Search by"></p-column>
+    <p-column field="energy" header="Energy" [filter]="!readOnlyTable" [sortable]="!readOnlyTable"
+              filterMatchMode="contains"
+              filterPlaceholder="Search by"></p-column>
+    <p-column field="ingredients" header="Ingredients">
+      <ng-template let-recipe="rowData" pTemplate="body" style="display: flex; justify-content: center">
+        <button type="button" pButton icon="fa-search"
+                (click)="showIngredientsPanel($event, recipe.id, ingredientsPanel)"></button>
+      </ng-template>
+    </p-column>
+    <p-column field="description" header="Description">
+      <ng-template let-recipe="rowData" pTemplate="body" style="display: flex; justify-content: center">
+        <button type="button" pButton icon="fa-search"
+                (click)="showDescriptionPanel($event, recipe.description, descriptionPanel)"></button>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</div>
+
+<p-overlayPanel #ingredientsPanel>
+  <app-ingredient-list #ingredientList [readOnlyTable]="true"></app-ingredient-list>
+</p-overlayPanel>
+
+<p-overlayPanel #descriptionPanel [style]="{'max-height': '210px', 'overflow': 'auto'}">
+  {{descriptionPanelText}}
+</p-overlayPanel>

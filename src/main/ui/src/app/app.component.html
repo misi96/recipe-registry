@@ -1,0 +1,15 @@
+<div class="ui-g">
+  <div id="navigation-bar" class="ui-md-1 ui-g-1">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div class="ui-md-11 ui-g-11">
+    <div class="ui-g-11">
+      <router-outlet style="width: 100%; height: 100%"></router-outlet>
+    </div>
+  </div>
+</div>
+
+<p-confirmDialog></p-confirmDialog>
+
+<p-growl [value]="messages" [sticky]="false" life="5000"></p-growl>

@@ -1,0 +1,28 @@
+<p-sidebar [(visible)]="display" position="left" [baseZIndex]="10000">
+  <div class="ui-md-12">
+    <h2>Menu</h2>
+  </div>
+  <nav>
+
+    <!--Introduction-->
+    <a routerLink="/introduction" routerLinkActive="active" (click)="hideSidebar()">
+      <div class="ui-md-12 ui-g-12">Introduction</div>
+    </a>
+
+    <!--Recipes-->
+    <a routerLink="/recipes" routerLinkActive="active" (click)="hideSidebar()">
+      <div class="ui-md-12 ui-g-12">Recipe list</div>
+    </a>
+
+    <!--Serving calculator-->
+    <a routerLink="/serving-calculator" routerLinkActive="active" (click)="hideSidebar()">
+      <div class="ui-md-12 ui-g-12">Serving calculator</div>
+    </a>
+
+  </nav>
+</p-sidebar>
+
+<!--Arrow button-->
+<div class="ui-md-1" style="margin-top: 20px">
+  <button pButton icon="fa-arrow-right" (click)="showSidebar()"></button>
+</div>

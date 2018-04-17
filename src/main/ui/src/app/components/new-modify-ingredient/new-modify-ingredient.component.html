@@ -1,0 +1,63 @@
+<p-dialog header="Ingredient Details" [(visible)]="display" *ngIf="display" [responsive]="true" showEffect="fade"
+          [modal]="true"
+          [width]="350">
+  <form #ingredientForm="ngForm">
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="displayedIngredient">
+
+      <!--Name-->
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <span class="ui-float-label">
+              <input id="name" name="name" type="text" required="true" pInputText
+                     [(ngModel)]="displayedIngredient.name">
+              <label>Name<span>*</span></label>
+            </span>
+        </div>
+      </div>
+
+      <!--Quantity-->
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <span class="ui-float-label">
+              <p-spinner id="quantity" name="quantity" [(ngModel)]="displayedIngredient.quantity" [min]="0">
+              </p-spinner>
+              <label>Quantity<span>*</span></label>
+            </span>
+        </div>
+      </div>
+
+      <!--Type-->
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <span class="ui-float-label">
+              <p-dropdown id="type" name="type" [options]="quantityTypes" appendTo="body" [style]="{'width': '100%'}"
+                          [(ngModel)]="displayedIngredient.quantityType" required="true"></p-dropdown>
+              <label>Type<span>*</span></label>
+            </span>
+        </div>
+      </div>
+
+      <!--Energy-->
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <span class="ui-float-label">
+              <p-spinner id="energy" name="energy" [(ngModel)]="displayedIngredient.energy" [min]="0"
+                         [required]="true"></p-spinner>
+              <label>Energy (kcal)<span>*</span></label>
+            </span>
+        </div>
+      </div>
+
+    </div>
+  </form>
+  <p-footer>
+
+    <!--Buttons-->
+    <div class="ui-dialog-buttonpanel ui-helper-clearfix">
+      <button type="button" pButton icon="fa-check" (click)="saveIngredient()" label="Save"
+              [disabled]="!ingredientForm.form.valid"></button>
+      <button type="button" pButton icon="fa-close" (click)="hideDialog()" label="Cancel"></button>
+    </div>
+
+  </p-footer>
+</p-dialog>

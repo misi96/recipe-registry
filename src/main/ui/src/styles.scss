@@ -1,0 +1,116 @@
+.ui-button {
+  font-size: 1.1em;
+}
+
+.ui-datatable-header, .ui-datatable-footer {
+  .ui-button {
+    margin-right: 10px;
+  }
+}
+
+.ui-dialog-buttonpanel {
+  button {
+    margin-right: 10px;
+    width: 95px;
+  }
+}
+
+.ui-dialog-titlebar {
+  font-size: 1.2em;
+}
+
+.ui-overlaypanel {
+  width: 50%;
+}
+
+.ui-spinner {
+  width: 100%;
+  .ui-spinner-input {
+    width: 100%;
+  }
+}
+
+.ui-steps {
+  font-size: 1.1em;
+  ul {
+    li {
+      width: 33%;
+    }
+  }
+}
+
+.page-title {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.serving-button-container {
+  div {
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+    p-toggleButton {
+      width: 20%;
+    }
+  }
+}
+
+.wrapper {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  margin-top: 1.5em;
+  padding: 10px 20px 10px;
+}
+
+body {
+  transition: all 1s ease-in-out;
+}
+
+label {
+  color: green !important;
+  font-size: 1.1em !important;
+  span {
+    color: red;
+  }
+}
+
+p-dataTable {
+  .ui-datatable-header {
+    button {
+      margin-bottom: 5px;
+      margin-top: 5px;
+      width: 95px;
+    }
+    i {
+      color: green;
+    }
+    p {
+      font-size: 1.4em;
+    }
+  }
+  td {
+    .ng-star-inserted {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+p-dialog {
+  font-size: 1.1em;
+  .ui-grid-row {
+    margin: 1.8em 0 1.8em;
+  }
+}
+
+th, td {
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 640px) {
+  .responsive-input {
+    margin-top: 20px;
+  }
+}

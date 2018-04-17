@@ -1,0 +1,104 @@
+<div class="ui-g wrapper">
+
+  <!--Title-->
+  <div class="ui-md-12 ui-g-12">
+    <h1 class="page-title">{{recipeFormTitle}}</h1>
+  </div>
+
+  <form #recipeForm="ngForm">
+    <div class="ui-md-12">
+      <div class="ui-g form-group">
+
+        <!--Name-->
+        <div class="ui-md-3 ui-g-12">
+          <span class="ui-float-label">
+            <input id="name" name="name" type="text" [(ngModel)]="displayedRecipe.name" required="true" pInputText>
+            <label>Name<span>*</span></label>
+          </span>
+        </div>
+
+        <!--Category-->
+        <div class="ui-md-3 ui-g-12 responsive-input">
+          <span class="ui-float-label">
+            <p-dropdown id="category" name="category" [options]="recipeCategories" [(ngModel)]="displayedRecipe.type"
+                        [style]="{'width': '100%'}" [required]="true"></p-dropdown>
+            <label>Category<span>*</span></label>
+          </span>
+        </div>
+
+        <!--Cooking time-->
+        <div class="ui-md-3 ui-g-12 responsive-input">
+          <span class="ui-float-label">
+            <p-spinner id="cooking-time" name="cooking-time" [(ngModel)]="displayedRecipe.cookingTime" [min]="0"
+                       [style]="{'width': '100%'}"></p-spinner>
+            <label>Cooking time (min.)<span>*</span></label>
+          </span>
+        </div>
+
+        <!--Number of servings-->
+        <div class="ui-md-3 ui-g-12 responsive-input">
+          <span class="ui-float-label">
+            <input id="number-of-servings" name="number-of-servings" [(ngModel)]="displayedRecipe.numberOfServings" readonly="true" type="text"
+                   pInputText/>
+            <p-slider id="number-of-servings-slider" name="number-of-servings-slider" [(ngModel)]="displayedRecipe.numberOfServings"
+                      [style]="{'width': '100%'}"
+                      animate="true"
+                      min="1" step="1" max="20"></p-slider>
+            <label>Number of servings</label>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ui-md-12">
+      <div class="ui-g form-group">
+
+        <!--Difficulty-->
+        <div class="ui-md-6 ui-g-12">
+          <span style="display: flex; justify-content: space-around">
+            <label>Difficulty<span>*</span>:</label>
+            <p-rating id="difficulty" name="difficulty" [cancel]="false"
+                      required="true" [(ngModel)]="displayedRecipe.difficulty"></p-rating>
+          </span>
+        </div>
+
+        <!--Energy content-->
+        <div class="ui-md-6 ui-g-12">
+          <span style="display: flex; justify-content: space-around">
+            <label>Energy content:</label>
+            <p>{{displayedRecipe.energy}} kcal</p>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ui-md-12 ui-g-12">
+      <div class="ui-g form-group">
+
+        <!--Ingredients-->
+        <div class="ui-md-6 ui-g-12">
+          <app-ingredient-list #ingredientList (ingredientListChange)="setDisplayedRecipeEnergy($event)"></app-ingredient-list>
+        </div>
+
+        <!--Description-->
+        <div class="ui-md-6 ui-g-12 responsive-input">
+          <span class="ui-float-label">
+            <textarea id="description" name="description" pInputTextarea rows="10"
+                      [(ngModel)]="displayedRecipe.description"></textarea>
+            <label>Description</label>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+  <!--Buttons-->
+  <div class="ui-g ui-md-12 ui-g-12 button-bar">
+    <button pButton label="Back" icon="fa-arrow-left" (click)="navigateBackToRecipeList()"></button>
+    <button pButton label="Save" icon="fa-save" (click)="saveRecipe()" [disabled]="shouldSaveButtonBeDisabled()"></button>
+  </div>
+
+</div>

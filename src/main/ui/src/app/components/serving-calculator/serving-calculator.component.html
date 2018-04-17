@@ -1,0 +1,85 @@
+<div class="ui-g wrapper">
+
+  <!--Title-->
+  <div class="ui-md-12 ui-g-12">
+    <h1 class="page-title">Serving calculator</h1>
+  </div>
+
+  <!--Steps-->
+  <div class="ui-md-12 ui-g-12">
+    <p-steps [model]="steps" [(activeIndex)]="activeStepIndex" [readonly]="true"></p-steps>
+  </div>
+
+  <!--Step title-->
+  <div class="ui-g-12 step-title" *ngIf="isSmallerDevice()">
+    {{steps[activeStepIndex].label}}
+  </div>
+
+  <!--Recipe table-->
+  <app-recipe-table #recipeTable [showTableHeader]="false" *ngIf="activeStepIndex === 0"></app-recipe-table>
+
+  <!--Number of servings (first row button)-->
+  <div class="ui-md-12 ui-g-12" *ngIf="activeStepIndex === 1">
+    <div class="ui-g form-group serving-button-container">
+      <p-selectButton [options]="firstRowButtons" [(ngModel)]="selectedNumberOfServings"></p-selectButton>
+    </div>
+  </div>
+
+  <!--Number of servings (second row buttons)-->
+  <div class="ui-md-12 ui-g-12" *ngIf="activeStepIndex === 1">
+    <div class="ui-g form-group serving-button-container">
+      <p-selectButton [options]="secondRowButtons" [(ngModel)]="selectedNumberOfServings"></p-selectButton>
+    </div>
+  </div>
+
+  <!--Number of servings (third row button)-->
+  <div class="ui-md-12 ui-g-12" *ngIf="activeStepIndex === 1">
+    <div class="ui-g form-group serving-button-container">
+      <p-selectButton [options]="thirdRowButtons" [(ngModel)]="selectedNumberOfServings"></p-selectButton>
+    </div>
+  </div>
+
+  <!--Number of servings (fourth row button)-->
+  <div class="ui-md-12 ui-g-12" *ngIf="activeStepIndex === 1">
+    <div class="ui-g form-group serving-button-container">
+      <p-selectButton [options]="fourthRowButtons" [(ngModel)]="selectedNumberOfServings"></p-selectButton>
+    </div>
+  </div>
+
+  <!--Recipe title-->
+  <div class="ui-md-12 ui-g-12 ui-g-12" *ngIf="activeStepIndex === 2">
+    <h2>{{displayedRecipe.name}}</h2>
+  </div>
+
+
+  <!--Ingredients-->
+  <div id="foo" class="ui-md-12 ui-g-12 ui-g-12" *ngIf="activeStepIndex === 2">
+    <p-fieldset legend="Ingredients" [toggleable]="true">
+      <app-ingredient-list #ingredientList [readOnlyTable]="true"></app-ingredient-list>
+    </p-fieldset>
+  </div>
+
+  <!--Description-->
+  <div class="ui-md-12 ui-g-12 ui-g-12" *ngIf="activeStepIndex === 2">
+    <p-fieldset legend="Description" [toggleable]="true" [collapsed]="hasRecipeDescription()">
+      <p>
+        {{displayedRecipe.description}}
+      </p>
+    </p-fieldset>
+  </div>
+
+  <!--Download button-->
+  <div id="pdf-button-container" class="ui-md-12 ui-g-12" *ngIf="activeStepIndex === 2">
+    <button pButton label="Download" icon="fa-arrow-down" (click)="downloadRecipe()"></button>
+  </div>
+
+  <!--Buttons-->
+  <div id="calculator-footer" class="ui-md-12 ui-g-12">
+    <button pButton label="<< Previous" (click)="handlePreviousButton()"
+            [ngStyle]="{'visibility': activeStepIndex === 0 ? 'hidden' : 'visible'}"></button>
+    <button pButton label="Next >>" (click)="handleNextButton()"
+            [ngStyle]="{'visibility': activeStepIndex === 2 ? 'hidden' : 'visible'}"
+            [disabled]="shouldNextButtonBeDisabled()"></button>
+  </div>
+
+</div>

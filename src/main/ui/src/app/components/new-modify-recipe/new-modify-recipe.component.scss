@@ -1,0 +1,44 @@
+.button-bar {
+  button {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 120px;
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+}
+
+.ui-spinner {
+  width: 100%!important;
+}
+
+.wrapper {
+  form {
+    .form-group {
+      margin: 0;
+    }
+    div {
+      input {
+        width: 100%;
+      }
+      span {
+        p-rating {
+          font-size: 1.6em!important;
+        }
+      }
+      textarea {
+        resize: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+span.ui-spinner.ui-widget.ui-corner-all {
+  width: 100%;
+}
+
+p {
+  font-size: 1.2em;
+}

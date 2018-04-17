@@ -1,0 +1,20 @@
+# frontend
+
+*.css
+*.css.map
+node_modules/
+typings/
+e2e/
+
+# backend
+
+target/
+static/
+
+# general
+
+*.log
+.idea/
+.project
+.settings/*
+.classpath
