@@ -1,6 +1,7 @@
 package com.reciperegistry.Models;
 
 import com.reciperegistry.Entity.Ingredient;
+import com.reciperegistry.Service.CustomLogService;
 
 import java.util.List;
 
@@ -9,9 +10,12 @@ public class CalculatedRecipe {
     private String description;
 
     public CalculatedRecipe() {
+        CustomLogService.entityLog("CalculatedRecipe", true);
     }
 
     public CalculatedRecipe(List<Ingredient> ingredients, String description) {
+        CustomLogService.entityLog("CalculatedRecipe");
+
         this.ingredients = ingredients;
         this.description = description;
     }

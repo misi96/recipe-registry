@@ -2,6 +2,7 @@ package com.reciperegistry.Controller;
 
 import com.reciperegistry.Models.CalculatedRecipe;
 import com.reciperegistry.Models.RecipeToCalculate;
+import com.reciperegistry.Service.CustomLogService;
 import com.reciperegistry.Service.ServingCalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,8 @@ public class ServingCalculatorController {
 
     @PostMapping("recipe")
     public CalculatedRecipe getCalculatedRecipe(@RequestBody RecipeToCalculate recipeToCalculate) {
+        CustomLogService.controllerLog("serving-calculator/recipe", "ServingCalculatorController");
+
         return servingCalculatorService.getCalculatedRecipe(recipeToCalculate);
     }
 }

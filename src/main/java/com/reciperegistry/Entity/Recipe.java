@@ -1,5 +1,7 @@
 package com.reciperegistry.Entity;
 
+import com.reciperegistry.Service.CustomLogService;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,9 +26,12 @@ public class Recipe {
     private String description;
 
     public Recipe() {
+        CustomLogService.entityLog("Recipe", true);
     }
 
     public Recipe(String name, Integer type, String typeName, Integer difficulty, Integer cookingTime, Integer energy, Integer numberOfServings, String description) {
+        CustomLogService.entityLog("Recipe");
+
         this.name = name;
         this.type = type;
         this.typeName = typeName;

@@ -15,12 +15,16 @@ public class CategoryService {
     private CategoryRepository categoryRepository;
 
     public Collection<Category> getRecipeTypes() {
+        CustomLogService.serviceLog("getRecipeTypes()", "CategoryService");
+
         List<Category> recipeTypeList = new ArrayList<>();
         categoryRepository.findByParent("RECIPE").forEach(recipeTypeList::add);
         return recipeTypeList;
     }
 
     public Collection<Category> getQuantityTypes() {
+        CustomLogService.serviceLog("getQuantityTypes()", "CategoryService");
+
         List<Category> quantityTypeList = new ArrayList<>();
         categoryRepository.findByParent("INGREDIENT").forEach(quantityTypeList::add);
         return quantityTypeList;

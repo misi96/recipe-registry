@@ -39,6 +39,8 @@ import {NewModifyIngredientComponent} from './components/new-modify-ingredient/n
 import {StepsModule} from 'primeng/steps';
 import {RecipeTableComponent} from './components/recipe-table/recipe-table.component';
 import {ServingCalculatorComponent} from './components/serving-calculator/serving-calculator.component';
+import {ChartModule} from 'primeng/chart';
+import { RecipeStatisticsComponent } from './components/recipe-statistics/recipe-statistics.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import {ServingCalculatorComponent} from './components/serving-calculator/servin
     IntroductionComponent,
     IngredientListComponent,
     NewModifyIngredientComponent,
-    RecipeTableComponent
+    RecipeTableComponent,
+    RecipeStatisticsComponent
   ],
   imports: [
     AppRoutes,
@@ -78,7 +81,8 @@ import {ServingCalculatorComponent} from './components/serving-calculator/servin
     StepsModule,
     OverlayPanelModule,
     SelectButtonModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    ChartModule
   ],
   providers: [AppService, ConfirmationService, GrowlMessageService],
   bootstrap: [AppComponent]

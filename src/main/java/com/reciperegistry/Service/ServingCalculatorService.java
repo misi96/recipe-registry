@@ -27,6 +27,8 @@ public class ServingCalculatorService {
     private List<Ingredient> calculatedIngredientList = new ArrayList<>();
 
     public CalculatedRecipe getCalculatedRecipe(RecipeToCalculate recipeToCalc) {
+        CustomLogService.serviceLog("getCalculatedRecipe()", "ServingCalculatorService");
+
         RecipeToCalculate recipeToCalculate = new RecipeToCalculate(recipeToCalc.recipeId, recipeToCalc.numberOfServings);
         List<Ingredient> ingredientList = new ArrayList<>();
         String description;
@@ -45,10 +47,14 @@ public class ServingCalculatorService {
     }
 
     private String getCategoryName(Ingredient ingredient) {
+        CustomLogService.serviceLog("getCategoryName()", "ServingCalculatorService");
+
         return categoryRepository.findById(ingredient.getQuantityType()).get().getName();
     }
 
     private List<Ingredient> getCalculatedIngredients(List<Ingredient> ingredients, Integer originalNumberOfServings, Integer numberOfServingsToSet) {
+        CustomLogService.serviceLog("getCalculatedIngredients()", "ServingCalculatorService");
+
         List<Ingredient> calculatedIngredients = new ArrayList<>();
         ingredients.forEach(ingredient -> {
             Double quantity = ingredient.getQuantity() / originalNumberOfServings * numberOfServingsToSet;

@@ -1,5 +1,7 @@
 package com.reciperegistry.Entity;
 
+import com.reciperegistry.Service.CustomLogService;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,9 +15,12 @@ public class Category {
     private String parent;
 
     public Category() {
+        CustomLogService.entityLog("Category", true);
     }
 
     public Category(String name, String parent) {
+        CustomLogService.entityLog("Category");
+
         this.name = name;
         this.parent = parent;
     }

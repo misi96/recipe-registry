@@ -20,6 +20,8 @@ public class RecipeService {
     private CategoryRepository categoryRepository;
 
     public List<Recipe> getAllRecipes() {
+        CustomLogService.serviceLog("getAllRecipes()", "RecipeService");
+
         List<Recipe> recipeList = new ArrayList<>();
         recipeRepository.findAll().forEach(recipe -> {
             recipe.setTypeName(this.getCategoryName(recipe));
@@ -29,27 +31,39 @@ public class RecipeService {
     }
 
     private List<Recipe> getSortedRecipeList(List<Recipe> recipes) {
+        CustomLogService.serviceLog("getSortedRecipeList()", "RecipeService");
+
         return recipes.stream()
                 .sorted(Comparator.comparing(recipe -> recipe.getName().toLowerCase())).collect(Collectors.toList());
     }
 
     private String getCategoryName(Recipe recipe) {
+        CustomLogService.serviceLog("getCategoryName()", "RecipeService");
+
         return categoryRepository.findById(recipe.getType()).get().getName();
     }
 
     public Recipe getRecipeById(Integer id) {
+        CustomLogService.serviceLog("getRecipeById()", "RecipeService");
+
         return recipeRepository.findById(id).get();
     }
 
     public void deleteRecipeById(Integer id) {
+        CustomLogService.serviceLog("deleteRecipeById()", "RecipeService");
+
         recipeRepository.deleteById(id);
     }
 
     public Recipe updateRecipe(Recipe recipe) {
+        CustomLogService.serviceLog("updateRecipe()", "RecipeService");
+
         return recipeRepository.save(recipe);
     }
 
     public Recipe insertRecipe(Recipe recipe) {
+        CustomLogService.serviceLog("insertRecipe()", "RecipeService");
+
         return recipeRepository.save(recipe);
     }
 }

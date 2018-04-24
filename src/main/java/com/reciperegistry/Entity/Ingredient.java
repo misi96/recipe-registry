@@ -1,5 +1,7 @@
 package com.reciperegistry.Entity;
 
+import com.reciperegistry.Service.CustomLogService;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,9 +23,12 @@ public class Ingredient {
     private Integer recipeId;
 
     public Ingredient() {
+        CustomLogService.entityLog("Ingredient", true);
     }
 
     public Ingredient(String name, Double quantity, Integer quantityType, String quantityTypeName, Double energy, Integer recipeId) {
+        CustomLogService.entityLog("Ingredient");
+
         this.name = name;
         this.quantity = quantity;
         this.quantityType = quantityType;
