@@ -2,50 +2,81 @@ package com.reciperegistry.Entity;
 
 import com.reciperegistry.Service.CustomLogService;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+/**
+ * This class is responsible for creating a category entity.
+ *
+ * @author Szatmári Mihály
+ */
 @Entity
+@Table(name = "category")
 public class Category {
     @Id
-    @GeneratedValue
+    @GeneratedValue()
     private Integer id;
     private String name;
-    private String parent;
+    private String type;
 
+    /**
+     * This is the empty constructor of the class.
+     */
     public Category() {
         CustomLogService.entityLog("Category", true);
     }
 
-    public Category(String name, String parent) {
+    /**
+     * This is the constructor of the class.
+     */
+    public Category(String name, String type) {
         CustomLogService.entityLog("Category");
 
         this.name = name;
-        this.parent = parent;
+        this.type = type;
     }
 
+    /**
+     * Returns the id of the category.
+     *
+     * @return the id of the category
+     */
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
+    /**
+     * Returns the name of the category.
+     *
+     * @return the name of the category
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the name of the category.
+     *
+     * @param name the name of the category
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getParent() {
-        return parent;
+    /**
+     * Returns the type of the category.
+     *
+     * @return the type of the category
+     */
+    public String getType() {
+        return type;
     }
 
-    public void setParent(String parent) {
-        this.parent = parent;
+    /**
+     * Sets the type of the category.
+     *
+     * @param type the type of the category
+     */
+    public void setType(String type) {
+        this.type = type;
     }
 }

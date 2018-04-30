@@ -8,7 +8,7 @@ export class RecipeBaseVO extends BaseVO {
   energy: any;
   ingredients: IngredientListVO;
   name: string;
-  type: string;
+  category: string;
 
   constructor() {
     super();

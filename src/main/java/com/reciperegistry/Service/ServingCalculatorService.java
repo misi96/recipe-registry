@@ -1,8 +1,8 @@
 package com.reciperegistry.Service;
 
-import com.reciperegistry.Models.CalculatedRecipe;
 import com.reciperegistry.Entity.Ingredient;
 import com.reciperegistry.Entity.Recipe;
+import com.reciperegistry.Models.CalculatedRecipe;
 import com.reciperegistry.Models.RecipeToCalculate;
 import com.reciperegistry.Repository.CategoryRepository;
 import com.reciperegistry.Repository.IngredientRepository;
@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is responsible for handling serving calculator related operations.
+ *
+ * @author Szatmári Mihály
+ */
 @Service
 public class ServingCalculatorService {
     @Autowired
@@ -26,6 +31,14 @@ public class ServingCalculatorService {
 
     private List<Ingredient> calculatedIngredientList = new ArrayList<>();
 
+    /**
+     * Gets the recipe ingredients with the {@link IngredientRepository#findByRecipeId(Integer)} method,
+     * sets the quantity type name with the {@link ServingCalculatorService#getCategoryName(Ingredient)} method
+     * and gets the recipe with the {@link RecipeRepository#findById(Object)} then returns the calculated recipe.
+     *
+     * @param recipeToCalc the id and the number of servings of the recipe
+     * @return the ingredients and the description of the recipe
+     */
     public CalculatedRecipe getCalculatedRecipe(RecipeToCalculate recipeToCalc) {
         CustomLogService.serviceLog("getCalculatedRecipe()", "ServingCalculatorService");
 
@@ -34,7 +47,7 @@ public class ServingCalculatorService {
         String description;
         Recipe recipe;
 
-        ingredientRepository.findByRecipeId(recipeToCalculate.getRecipeId()).forEach(ingredient -> {
+        this.ingredientRepository.findByRecipeId(recipeToCalculate.getRecipeId()).forEach(ingredient -> {
             ingredient.setQuantityTypeName(this.getCategoryName(ingredient));
             ingredientList.add(ingredient);
         });
@@ -46,12 +59,26 @@ public class ServingCalculatorService {
         return new CalculatedRecipe(this.calculatedIngredientList, description);
     }
 
+    /**
+     * Returns the category name of the ingredient.
+     *
+     * @param ingredient an existing ingredient
+     * @return the category name of the ingredient
+     */
     private String getCategoryName(Ingredient ingredient) {
         CustomLogService.serviceLog("getCategoryName()", "ServingCalculatorService");
 
-        return categoryRepository.findById(ingredient.getQuantityType()).get().getName();
+        return this.categoryRepository.findById(ingredient.getQuantityType()).get().getName();
     }
 
+    /**
+     * Calculates the ingredient quantities and returns a list of the calculated ingredients.
+     *
+     * @param ingredients              the list of the ingredients which should be calculated
+     * @param originalNumberOfServings the original number of servings
+     * @param numberOfServingsToSet    the chosen number of servings
+     * @return a list of the calculated ingredients
+     */
     private List<Ingredient> getCalculatedIngredients(List<Ingredient> ingredients, Integer originalNumberOfServings, Integer numberOfServingsToSet) {
         CustomLogService.serviceLog("getCalculatedIngredients()", "ServingCalculatorService");
 
