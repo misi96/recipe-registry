@@ -92,6 +92,7 @@ public class ServingCalculatorService {
 
             calculatedIngredients.add(ingredient);
         });
+
         return calculatedIngredients;
     }
 }

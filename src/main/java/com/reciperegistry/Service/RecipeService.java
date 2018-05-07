@@ -38,6 +38,7 @@ public class RecipeService {
             recipe.setCategoryName(this.getCategoryName(recipe));
             recipeList.add(recipe);
         });
+
         return this.getSortedRecipeList(recipeList);
     }
 

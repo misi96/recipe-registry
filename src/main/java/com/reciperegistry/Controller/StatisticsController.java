@@ -29,6 +29,7 @@ public class StatisticsController {
     @GetMapping("get")
     public List<RecipeStatistics> getStatistics() {
         CustomLogService.controllerLog("statistics/get", "StatisticsController");
+
         return this.statisticsService.getStatistics();
     }
 }

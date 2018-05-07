@@ -35,6 +35,7 @@ public class IngredientService {
 
         List<Ingredient> ingredientList = new ArrayList<>();
         this.ingredientRepository.findAll().forEach(ingredientList::add);
+
         return this.getSortedIngredientList(ingredientList);
     }
 
@@ -66,6 +67,7 @@ public class IngredientService {
             ingredient.setQuantityTypeName(this.getCategoryName(ingredient));
             ingredientList.add(ingredient);
         });
+
         return this.getSortedIngredientList(ingredientList);
     }
 

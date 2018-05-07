@@ -29,6 +29,7 @@ public class CategoryService {
 
         List<Category> recipeTypeList = new ArrayList<>();
         this.categoryRepository.findByType("RECIPE").forEach(recipeTypeList::add);
+
         return recipeTypeList;
     }
 
@@ -43,6 +44,7 @@ public class CategoryService {
 
         List<Category> quantityTypeList = new ArrayList<>();
         this.categoryRepository.findByType("INGREDIENT").forEach(quantityTypeList::add);
+
         return quantityTypeList;
     }
 }

@@ -58,6 +58,7 @@ public class StatisticsService {
         this.categoryRepository.findByType("RECIPE").forEach(category -> {
             categoryList.add(category);
         });
+
         return categoryList;
     }
 }
