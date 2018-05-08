@@ -12,11 +12,11 @@ public class RecipeToCalculate {
     /**
      * This is the id of the recipe.
      */
-    public Integer recipeId;
+    private Integer recipeId;
     /**
      * This is the number of serving of the recipe.
      */
-    public Integer numberOfServings;
+    private Integer numberOfServings;
 
     /**
      * This is the empty constructor of the class.

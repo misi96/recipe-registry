@@ -8,7 +8,13 @@ import org.slf4j.LoggerFactory;
  *
  * @author Szatmári Mihály
  */
-public class CustomLogService {
+public final class CustomLogService {
+    /**
+     * This is the empty constructor of the class.
+     */
+    private CustomLogService() {
+    }
+
     /**
      * This is the slf4j logger of the application.
      */

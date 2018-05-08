@@ -17,6 +17,11 @@ import javax.persistence.Column;
 @Table(name = "recipe")
 public class Recipe {
     /**
+     * This is the maximum length of the description field.
+     */
+    private static final Integer MAX_DESCRIPTION_LENGTH = 100;
+
+    /**
      * This is the id of the recipe.
      */
     @Id
@@ -56,7 +61,7 @@ public class Recipe {
     /**
      * This is the description of the recipe.
      */
-    @Column(length = 1500)
+    @Column(length = 1024)
     private String description;
 
     /**

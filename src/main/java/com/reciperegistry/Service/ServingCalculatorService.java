@@ -61,8 +61,8 @@ public class ServingCalculatorService {
                         "ServingCalculatorService");
 
         RecipeToCalculate recipeToCalculate
-                = new RecipeToCalculate(recipeToCalc.recipeId,
-                recipeToCalc.numberOfServings);
+                = new RecipeToCalculate(recipeToCalc.getRecipeId(),
+                recipeToCalc.getNumberOfServings());
         List<Ingredient> ingredientList = new ArrayList<>();
         String description;
         Recipe recipe;

@@ -12,6 +12,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 @SpringBootApplication
 public class Main {
+//    /**
+//     * This is the empty constructor of the class.
+//     */
+//    private Main() {
+//    }
+
     /**
      * This is the slf4j logger of the application.
      */

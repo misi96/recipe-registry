@@ -47,7 +47,7 @@ public class IngredientController {
 
     /**
      * Calls the {@link IngredientService#getIngredientsByRecipeId(Integer)}
-     * method from {@link IngredientService}
+     * method from {@link IngredientService}.
      *
      * @param id the id of the recipe
      * @return a list of ingredient by recipe id
@@ -64,7 +64,7 @@ public class IngredientController {
 
     /**
      * Calls the {@link IngredientService#insertIngredients(List)}
-     * method from {@link IngredientService}
+     * method from {@link IngredientService}.
      *
      * @param ingredients the list of new ingredients
      */
@@ -80,7 +80,7 @@ public class IngredientController {
 
     /**
      * Calls the {@link IngredientService#getIngredientById(Integer)}
-     * method from {@link IngredientService}
+     * method from {@link IngredientService}.
      *
      * @param id the id of the ingredient
      * @return an ingredient by id
