@@ -11,26 +11,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * This class is responsible for handling serving calculator related Rest points.
+ * This class is responsible for handling serving calculator
+ * related Rest points.
  *
  * @author Szatmári Mihály
  */
 @RestController
 @RequestMapping("/serving-calculator")
 public class ServingCalculatorController {
+    /**
+     * This service contains serving calculator related operations.
+     */
     @Autowired
     private ServingCalculatorService servingCalculatorService;
 
     /**
-     * Calls the {@link ServingCalculatorService#getCalculatedRecipe(RecipeToCalculate)} method from {@link ServingCalculatorService}.
+     * Calls the
+     * {@link ServingCalculatorService#getCalculatedRecipe(RecipeToCalculate)}
+     * method from {@link ServingCalculatorService}.
      *
      * @param recipeToCalculate the recipe id and the number of servings
      * @return the calculated ingredients and description
      */
     @PostMapping("recipe")
-    public CalculatedRecipe getCalculatedRecipe(@RequestBody RecipeToCalculate recipeToCalculate) {
-        CustomLogService.controllerLog("serving-calculator/recipe", "ServingCalculatorController");
+    public final CalculatedRecipe
+    getCalculatedRecipe(@RequestBody final
+                        RecipeToCalculate recipeToCalculate) {
+        CustomLogService
+                .controllerLog("serving-calculator/recipe",
+                        "ServingCalculatorController");
 
-        return this.servingCalculatorService.getCalculatedRecipe(recipeToCalculate);
+        return this.servingCalculatorService
+                .getCalculatedRecipe(recipeToCalculate);
     }
 }

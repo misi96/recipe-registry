@@ -17,42 +17,60 @@ import java.util.List;
  */
 @Service
 public class StatisticsService {
+    /**
+     * This repository contains the recipes.
+     */
     @Autowired
     private RecipeRepository recipeRepository;
 
+    /**
+     * This repository contains the categories.
+     */
     @Autowired
     private CategoryRepository categoryRepository;
 
     /**
-     * Calls the {@link RecipeRepository#findByCategory(Integer)} method from {@link RecipeRepository}
-     * and {@link StatisticsService#getStatistics()} then returns a list of recipe categories and the
+     * Calls the {@link RecipeRepository#findByCategory(Integer)}
+     * method from {@link RecipeRepository}
+     * and {@link StatisticsService#getStatistics()} then returns
+     * a list of recipe categories and the
      * related number of recipes.
      *
      * @return a list of recipe statistics
      */
-    public List<RecipeStatistics> getStatistics() {
-        CustomLogService.serviceLog("getStatistics()", "StatisticsService");
+    public final List<RecipeStatistics>
+    getStatistics() {
+        CustomLogService
+                .serviceLog("getStatistics()",
+                "StatisticsService");
 
         List<RecipeStatistics> recipeStatisticsList = new ArrayList<>();
         List<Category> categoryList = this.getRecipeCategories();
 
         categoryList.forEach(category -> {
             Integer recipeListSize;
-            recipeListSize = recipeRepository.findByCategory(category.getId()).size();
-            recipeStatisticsList.add(new RecipeStatistics(category.getName(), recipeListSize));
+            recipeListSize = recipeRepository
+                    .findByCategory(category.getId()).size();
+            recipeStatisticsList
+                    .add(new RecipeStatistics(category.getName(),
+                            recipeListSize));
         });
 
         return recipeStatisticsList;
     }
 
     /**
-     * Calls the {@link CategoryRepository#findByType(String)} method from {@link CategoryRepository}
+     * Calls the {@link CategoryRepository#findByType(String)}
+     * method from {@link CategoryRepository}
      * and returns a list of recipe categories.
      *
      * @return a list of recipe categories
      */
-    private List<Category> getRecipeCategories() {
-        CustomLogService.serviceLog("getRecipeCategories()", "StatisticsService");
+    private List<Category>
+    getRecipeCategories() {
+        CustomLogService
+                .serviceLog("getRecipeCategories()",
+                "StatisticsService");
 
         List<Category> categoryList = new ArrayList<>();
         this.categoryRepository.findByType("RECIPE").forEach(category -> {

@@ -2,7 +2,10 @@ package com.reciperegistry.Entity;
 
 import com.reciperegistry.Service.CustomLogService;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * This class is responsible for creating a category entity.
@@ -12,10 +15,19 @@ import javax.persistence.*;
 @Entity
 @Table(name = "category")
 public class Category {
+    /**
+     * This is the id of the category.
+     */
     @Id
     @GeneratedValue()
     private Integer id;
+    /**
+     * This is the name of the category.
+     */
     private String name;
+    /**
+     * This is the type of the category.
+     */
     private String type;
 
     /**
@@ -27,12 +39,15 @@ public class Category {
 
     /**
      * This is the constructor of the class.
+     *
+     * @param newName the name of the category
+     * @param newType the type of the category
      */
-    public Category(String name, String type) {
+    public Category(final String newName, final String newType) {
         CustomLogService.entityLog("Category");
 
-        this.name = name;
-        this.type = type;
+        this.name = newName;
+        this.type = newType;
     }
 
     /**
@@ -40,7 +55,8 @@ public class Category {
      *
      * @return the id of the category
      */
-    public Integer getId() {
+    public final Integer
+    getId() {
         return id;
     }
 
@@ -49,17 +65,19 @@ public class Category {
      *
      * @return the name of the category
      */
-    public String getName() {
+    public final String
+    getName() {
         return name;
     }
 
     /**
      * Sets the name of the category.
      *
-     * @param name the name of the category
+     * @param newName the name of the category
      */
-    public void setName(String name) {
-        this.name = name;
+    public final void
+    setName(final String newName) {
+        this.name = newName;
     }
 
     /**
@@ -67,16 +85,18 @@ public class Category {
      *
      * @return the type of the category
      */
-    public String getType() {
+    public final String
+    getType() {
         return type;
     }
 
     /**
      * Sets the type of the category.
      *
-     * @param type the type of the category
+     * @param newType the type of the category
      */
-    public void setType(String type) {
-        this.type = type;
+    public final void
+    setType(final String newType) {
+        this.type = newType;
     }
 }

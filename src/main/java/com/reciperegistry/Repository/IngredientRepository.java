@@ -12,12 +12,13 @@ import java.util.List;
  * @author Szatmári Mihály
  */
 @Repository
-public interface IngredientRepository extends CrudRepository<Ingredient, Integer> {
+public interface
+IngredientRepository extends CrudRepository<Ingredient, Integer> {
     /**
      * Returns a list of ingredients by recipe id.
      *
      * @param recipeId the id of the recipe
      * @return a list of ingredients by recipe id
      */
-    public List<Ingredient> findByRecipeId(Integer recipeId);
+    List<Ingredient> findByRecipeId(Integer recipeId);
 }

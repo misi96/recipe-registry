@@ -6,12 +6,23 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+/**
+ * This is the main class of the application.
+ */
 @EnableJpaRepositories
 @SpringBootApplication
 public class Main {
-    public static Logger log = LoggerFactory.getLogger(Main.class);
+    /**
+     * This is the slf4j logger of the application.
+     */
+    private static Logger log = LoggerFactory.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    /**
+     * This is the main method of the application.
+     *
+     * @param args the arguments of the main method
+     */
+    public static void main(final String[] args) {
         log.info("Called - main function");
 
         SpringApplication.run(Main.class, args);

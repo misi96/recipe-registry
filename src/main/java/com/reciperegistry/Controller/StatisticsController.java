@@ -18,17 +18,24 @@ import java.util.List;
 @RestController
 @RequestMapping("/statistics")
 public class StatisticsController {
+    /**
+     * This service contains ingredient related operations.
+     */
     @Autowired
-    StatisticsService statisticsService;
+    private StatisticsService statisticsService;
 
     /**
-     * Calls the {@link StatisticsService#getStatistics()} method from {@link StatisticsService}.
+     * Calls the {@link StatisticsService#getStatistics()} method
+     * from {@link StatisticsService}.
      *
      * @return the number of recipes grouped by tbe recipe categories
      */
     @GetMapping("get")
-    public List<RecipeStatistics> getStatistics() {
-        CustomLogService.controllerLog("statistics/get", "StatisticsController");
+    public final List<RecipeStatistics>
+    getStatistics() {
+        CustomLogService
+                .controllerLog("statistics/get",
+                        "StatisticsController");
 
         return this.statisticsService.getStatistics();
     }

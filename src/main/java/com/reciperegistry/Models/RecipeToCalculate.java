@@ -3,32 +3,43 @@ package com.reciperegistry.Models;
 import com.reciperegistry.Service.CustomLogService;
 
 /**
- * This class is responsible for creating recipes which ingredients should be calculated.
+ * This class is responsible for creating recipes
+ * which ingredients should be calculated.
  *
  * @author Szatmári Mihály
  */
 public class RecipeToCalculate {
+    /**
+     * This is the id of the recipe.
+     */
     public Integer recipeId;
+    /**
+     * This is the number of serving of the recipe.
+     */
     public Integer numberOfServings;
 
     /**
      * This is the empty constructor of the class.
      */
     public RecipeToCalculate() {
-        CustomLogService.modelLog("RecipeToCalculate", true);
+        CustomLogService
+                .modelLog("RecipeToCalculate", true);
     }
 
     /**
      * This is the constructor of the class.
      *
-     * @param recipeId         the id of the recipe
-     * @param numberOfServings the number of servings of the recipe
+     * @param newRecipeId         the id of the recipe
+     * @param newNumberOfServings the number of servings of the recipe
      */
-    public RecipeToCalculate(Integer recipeId, Integer numberOfServings) {
-        CustomLogService.modelLog("RecipeToCalculate");
+    public
+    RecipeToCalculate(final Integer newRecipeId,
+                      final Integer newNumberOfServings) {
+        CustomLogService
+                .modelLog("RecipeToCalculate");
 
-        this.recipeId = recipeId;
-        this.numberOfServings = numberOfServings;
+        this.recipeId = newRecipeId;
+        this.numberOfServings = newNumberOfServings;
     }
 
     /**
@@ -36,17 +47,19 @@ public class RecipeToCalculate {
      *
      * @return the id of the recipe
      */
-    public Integer getRecipeId() {
+    public final Integer
+    getRecipeId() {
         return recipeId;
     }
 
     /**
      * Sets the id of the recipe.
      *
-     * @param recipeId the id of the recipe
+     * @param newRecipeId the id of the recipe
      */
-    public void setRecipeId(Integer recipeId) {
-        this.recipeId = recipeId;
+    public final void
+    setRecipeId(final Integer newRecipeId) {
+        this.recipeId = newRecipeId;
     }
 
     /**
@@ -54,16 +67,18 @@ public class RecipeToCalculate {
      *
      * @return the number of servings of the recipe
      */
-    public Integer getNumberOfServings() {
+    public final Integer
+    getNumberOfServings() {
         return numberOfServings;
     }
 
     /**
      * Sets the number of servings of the recipe.
      *
-     * @param numberOfServings the number of servings of the recipe
+     * @param newNumberOfServings the number of servings of the recipe
      */
-    public void setNumberOfServings(Integer numberOfServings) {
-        this.numberOfServings = numberOfServings;
+    public final void
+    setNumberOfServings(final Integer newNumberOfServings) {
+        this.numberOfServings = newNumberOfServings;
     }
 }

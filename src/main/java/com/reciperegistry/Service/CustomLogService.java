@@ -1,6 +1,7 @@
 package com.reciperegistry.Service;
 
-import static com.reciperegistry.Main.log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class is responsible for logging.
@@ -9,12 +10,18 @@ import static com.reciperegistry.Main.log;
  */
 public class CustomLogService {
     /**
+     * This is the slf4j logger of the application.
+     */
+    private static Logger log = LoggerFactory.getLogger(CustomLogService.class);
+
+    /**
      * Logs the Rest url from a controller.
      *
      * @param restUrl        the Rest url
      * @param controllerName the name of the controller
      */
-    public static void controllerLog(String restUrl, String controllerName) {
+    public static void
+    controllerLog(final String restUrl, final String controllerName) {
         log.info("Called - " + restUrl + " rest from " + controllerName);
     }
 
@@ -24,7 +31,8 @@ public class CustomLogService {
      * @param functionName the name of the function
      * @param serviceName  the name of the service
      */
-    public static void serviceLog(String functionName, String serviceName) {
+    public static void
+    serviceLog(final String functionName, final String serviceName) {
         log.info("Called - " + functionName + " from " + serviceName);
     }
 
@@ -33,7 +41,8 @@ public class CustomLogService {
      *
      * @param entityName the name of the entity
      */
-    public static void entityLog(String entityName) {
+    public static void
+    entityLog(final String entityName) {
         log.info("Called - " + entityName + " entity constructor");
     }
 
@@ -41,9 +50,11 @@ public class CustomLogService {
      * Logs the entity name from the empty constructor.
      *
      * @param entityName         the name of the entity
-     * @param isConstructorEmpty the flag which determines that is it an empty constructor or not
+     * @param isConstructorEmpty the flag which determines that
+     *                           is it an empty constructor or not
      */
-    public static void entityLog(String entityName, Boolean isConstructorEmpty) {
+    public static void
+    entityLog(final String entityName, final Boolean isConstructorEmpty) {
         log.info("Called - " + entityName + " (empty) entity constructor");
     }
 
@@ -52,7 +63,8 @@ public class CustomLogService {
      *
      * @param modelName the name of the model
      */
-    public static void modelLog(String modelName) {
+    public static void
+    modelLog(final String modelName) {
         log.info("Called - " + modelName + " model constructor");
     }
 
@@ -60,9 +72,11 @@ public class CustomLogService {
      * Logs the model name from the empty constructor.
      *
      * @param modelName          the name of the model
-     * @param isConstructorEmpty the flag which determines that is it an empty constructor or not
+     * @param isConstructorEmpty the flag which determines that
+     *                           is it an empty constructor or not
      */
-    public static void modelLog(String modelName, Boolean isConstructorEmpty) {
+    public static void
+    modelLog(final String modelName, final Boolean isConstructorEmpty) {
         log.info("Called - " + modelName + " (empty) model constructor");
     }
 }

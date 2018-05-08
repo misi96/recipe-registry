@@ -18,29 +18,38 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
+    /**
+     * This service contains the category related operations.
+     */
     @Autowired
     private CategoryService categoryService;
 
     /**
-     * Calls the {@link CategoryService#getRecipeCategories()} method from {@link CategoryService}.
+     * Calls the {@link CategoryService#getRecipeCategories()}
+     * method from {@link CategoryService}.
      *
      * @return a list of all recipe categories
      */
     @GetMapping("recipe/list")
-    public Collection<Category> getRecipeCategories() {
-        CustomLogService.controllerLog("category/recipe/list", "CategoryController");
+    public final Collection<Category> getRecipeCategories() {
+        CustomLogService
+                .controllerLog("category/recipe/list",
+                        "CategoryController");
 
         return this.categoryService.getRecipeCategories();
     }
 
     /**
-     * Calls the {@link CategoryService#getIngredientQuantityTypes()} method from {@link CategoryService}.
+     * Calls the {@link CategoryService#getIngredientQuantityTypes()}
+     * method from {@link CategoryService}.
      *
      * @return a list of all ingredient quantity types
      */
     @GetMapping("ingredient/list")
-    public Collection<Category> getIngredientQuantityTypes() {
-        CustomLogService.controllerLog("category/ingredient/list", "CategoryController");
+    public final Collection<Category> getIngredientQuantityTypes() {
+        CustomLogService
+                .controllerLog("category/ingredient/list",
+                        "CategoryController");
 
         return this.categoryService.getIngredientQuantityTypes();
     }

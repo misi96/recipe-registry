@@ -8,27 +8,37 @@ import com.reciperegistry.Service.CustomLogService;
  * @author Szatmári Mihály
  */
 public class RecipeStatistics {
+    /**
+     * This is the category name of the recipe.
+     */
     private String categoryName;
+    /**
+     * This is the number of recipes.
+     */
     private Integer categoryValue;
 
     /**
      * This is the empty constructor of the class.
      */
     public RecipeStatistics() {
-        CustomLogService.modelLog("RecipeStatistics", true);
+        CustomLogService
+                .modelLog("RecipeStatistics", true);
     }
 
     /**
      * This is the constructor of the class.
      *
-     * @param categoryName  the category name of the recipe
-     * @param categoryValue the number of the recipes
+     * @param newCategoryName  the category name of the recipe
+     * @param newCategoryValue the number of the recipes
      */
-    public RecipeStatistics(String categoryName, Integer categoryValue) {
-        CustomLogService.modelLog("RecipeStatistics");
+    public
+    RecipeStatistics(final String newCategoryName,
+                     final Integer newCategoryValue) {
+        CustomLogService
+                .modelLog("RecipeStatistics");
 
-        this.categoryName = categoryName;
-        this.categoryValue = categoryValue;
+        this.categoryName = newCategoryName;
+        this.categoryValue = newCategoryValue;
     }
 
     /**
@@ -36,17 +46,19 @@ public class RecipeStatistics {
      *
      * @return the category name of the recipe
      */
-    public String getCategoryName() {
+    public final String
+    getCategoryName() {
         return categoryName;
     }
 
     /**
      * Sets the category name of the recipe.
      *
-     * @param categoryName the category name of the recipe
+     * @param newCategoryName the category name of the recipe
      */
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public final void
+    setCategoryName(final String newCategoryName) {
+        this.categoryName = newCategoryName;
     }
 
     /**
@@ -54,16 +66,18 @@ public class RecipeStatistics {
      *
      * @return the number of recipes.
      */
-    public Integer getCategoryValue() {
+    public final Integer
+    getCategoryValue() {
         return categoryValue;
     }
 
     /**
      * Sets the number of recipes.
      *
-     * @param categoryValue the number of recipes
+     * @param newCategoryValue the number of recipes
      */
-    public void setCategoryValue(Integer categoryValue) {
-        this.categoryValue = categoryValue;
+    public final void
+    setCategoryValue(final Integer newCategoryValue) {
+        this.categoryValue = newCategoryValue;
     }
 }

@@ -2,7 +2,11 @@ package com.reciperegistry.Entity;
 
 import com.reciperegistry.Service.CustomLogService;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
 
 /**
  * This class is responsible for creating a recipe entity.
@@ -12,20 +16,47 @@ import javax.persistence.*;
 @Entity
 @Table(name = "recipe")
 public class Recipe {
+    /**
+     * This is the id of the recipe.
+     */
     @Id
     @GeneratedValue()
     private Integer id;
+    /**
+     * This is the name of the recipe.
+     */
     private String name;
+    /**
+     * This is the category of the recipe.
+     */
     private Integer category;
+    /**
+     * This is the category name of the recipe.
+     */
     @Column(name = "category_name")
     private String categoryName;
+    /**
+     * This is the difficulty of the recipe.
+     */
     private Integer difficulty;
+    /**
+     * This is the cooking time of the recipe.
+     */
     @Column(name = "cooking_time")
     private Integer cookingTime;
+    /**
+     * This is the energy of the recipe.
+     */
     private Integer energy;
+    /**
+     * This is the number of servings of the recipe.
+     */
     @Column(name = "portion_size")
     private Integer numberOfServings;
-    @Column(length = 2048)
+    /**
+     * This is the description of the recipe.
+     */
+    @Column(length = 1500)
     private String description;
 
     /**
@@ -38,26 +69,33 @@ public class Recipe {
     /**
      * This is the constructor of the class.
      *
-     * @param name             the name of the recipe
-     * @param category         the category of the recipe
-     * @param categoryName     the category name of the recipe
-     * @param difficulty       the difficulty of the recipe
-     * @param cookingTime      the cooking time of the recipe
-     * @param energy           the energy of the recipe
-     * @param numberOfServings the number of servings of the recipe
-     * @param description      the description of the recipe
+     * @param newName             the name of the recipe
+     * @param newCategory         the category of the recipe
+     * @param newCategoryName     the category name of the recipe
+     * @param newDifficulty       the difficulty of the recipe
+     * @param newCookingTime      the cooking time of the recipe
+     * @param newEnergy           the energy of the recipe
+     * @param newNumberOfServings the number of servings of the recipe
+     * @param newDescription      the description of the recipe
      */
-    public Recipe(String name, Integer category, String categoryName, Integer difficulty, Integer cookingTime, Integer energy, Integer numberOfServings, String description) {
+    public Recipe(final String newName,
+                  final Integer newCategory,
+                  final String newCategoryName,
+                  final Integer newDifficulty,
+                  final Integer newCookingTime,
+                  final Integer newEnergy,
+                  final Integer newNumberOfServings,
+                  final String newDescription) {
         CustomLogService.entityLog("Recipe");
 
-        this.name = name;
-        this.category = category;
-        this.categoryName = categoryName;
-        this.difficulty = difficulty;
-        this.cookingTime = cookingTime;
-        this.energy = energy;
-        this.numberOfServings = numberOfServings;
-        this.description = description;
+        this.name = newName;
+        this.category = newCategory;
+        this.categoryName = newCategoryName;
+        this.difficulty = newDifficulty;
+        this.cookingTime = newCookingTime;
+        this.energy = newEnergy;
+        this.numberOfServings = newNumberOfServings;
+        this.description = newDescription;
     }
 
     /**
@@ -65,7 +103,8 @@ public class Recipe {
      *
      * @return the id of the recipe
      */
-    public Integer getId() {
+    public final Integer
+    getId() {
         return id;
     }
 
@@ -74,17 +113,19 @@ public class Recipe {
      *
      * @return the name of the recipe
      */
-    public String getName() {
+    public final String
+    getName() {
         return name;
     }
 
     /**
      * Sets the name of the recipe.
      *
-     * @param name the name of the recipe
+     * @param newName the name of the recipe
      */
-    public void setName(String name) {
-        this.name = name;
+    public final void
+    setName(final String newName) {
+        this.name = newName;
     }
 
     /**
@@ -92,17 +133,19 @@ public class Recipe {
      *
      * @return the category of the recipe
      */
-    public Integer getCategory() {
+    public final Integer
+    getCategory() {
         return category;
     }
 
     /**
      * Sets the category of the recipe.
      *
-     * @param category the category of the recipe
+     * @param newCategory the category of the recipe
      */
-    public void setCategory(Integer category) {
-        this.category = category;
+    public final void
+    setCategory(final Integer newCategory) {
+        this.category = newCategory;
     }
 
     /**
@@ -110,17 +153,19 @@ public class Recipe {
      *
      * @return the category name of the recipe
      */
-    public String getCategoryName() {
+    public final String
+    getCategoryName() {
         return categoryName;
     }
 
     /**
      * Sets the category name of the recipe.
      *
-     * @param categoryName the category name of the recipe
+     * @param newCategoryName the category name of the recipe
      */
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public final void
+    setCategoryName(final String newCategoryName) {
+        this.categoryName = newCategoryName;
     }
 
     /**
@@ -128,17 +173,19 @@ public class Recipe {
      *
      * @return the difficulty of the recipe
      */
-    public Integer getDifficulty() {
+    public final Integer
+    getDifficulty() {
         return difficulty;
     }
 
     /**
      * Sets the difficulty of the recipe.
      *
-     * @param difficulty the difficulty of the recipe
+     * @param newDifficulty the difficulty of the recipe
      */
-    public void setDifficulty(Integer difficulty) {
-        this.difficulty = difficulty;
+    public final void
+    setDifficulty(final Integer newDifficulty) {
+        this.difficulty = newDifficulty;
     }
 
     /**
@@ -146,17 +193,19 @@ public class Recipe {
      *
      * @return the cooking time of the recipe
      */
-    public Integer getCookingTime() {
+    public final Integer
+    getCookingTime() {
         return cookingTime;
     }
 
     /**
      * Sets the cooking time of the recipe.
      *
-     * @param cookingTime the cooking time of the recipe
+     * @param newCookingTime the cooking time of the recipe
      */
-    public void setCookingTime(Integer cookingTime) {
-        this.cookingTime = cookingTime;
+    public final void
+    setCookingTime(final Integer newCookingTime) {
+        this.cookingTime = newCookingTime;
     }
 
     /**
@@ -164,17 +213,19 @@ public class Recipe {
      *
      * @return the energy of the recipe
      */
-    public Integer getEnergy() {
+    public final Integer
+    getEnergy() {
         return energy;
     }
 
     /**
      * Sets the energy of the recipe.
      *
-     * @param energy the energy of the recipe
+     * @param newEnergy the energy of the recipe
      */
-    public void setEnergy(Integer energy) {
-        this.energy = energy;
+    public final void
+    setEnergy(final Integer newEnergy) {
+        this.energy = newEnergy;
     }
 
     /**
@@ -182,17 +233,19 @@ public class Recipe {
      *
      * @return the number of servings of the recipe
      */
-    public Integer getNumberOfServings() {
+    public final Integer
+    getNumberOfServings() {
         return numberOfServings;
     }
 
     /**
      * Sets the number of servings of the recipe.
      *
-     * @param numberOfServings the number of servings of the recipe
+     * @param newNumberOfServings the number of servings of the recipe
      */
-    public void setNumberOfServings(Integer numberOfServings) {
-        this.numberOfServings = numberOfServings;
+    public final void
+    setNumberOfServings(final Integer newNumberOfServings) {
+        this.numberOfServings = newNumberOfServings;
     }
 
     /**
@@ -200,16 +253,18 @@ public class Recipe {
      *
      * @return the description of the recipe
      */
-    public String getDescription() {
+    public final String
+    getDescription() {
         return description;
     }
 
     /**
      * Sets the description of the recipe.
      *
-     * @param description the description of the recipe
+     * @param newDescription the description of the recipe
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public final void
+    setDescription(final String newDescription) {
+        this.description = newDescription;
     }
 }

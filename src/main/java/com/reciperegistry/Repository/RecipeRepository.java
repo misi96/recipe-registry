@@ -19,5 +19,5 @@ public interface RecipeRepository extends CrudRepository<Recipe, Integer> {
      * @param category the category of the recipe
      * @return a list of recipes by recipe category
      */
-    public List<Recipe> findByCategory(Integer category);
+    List<Recipe> findByCategory(Integer category);
 }

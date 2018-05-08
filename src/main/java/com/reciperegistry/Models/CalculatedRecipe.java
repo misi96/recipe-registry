@@ -11,27 +11,37 @@ import java.util.List;
  * @author Szatmári Mihály
  */
 public class CalculatedRecipe {
+    /**
+     * This is the list of the ingredients of the recipe.
+     */
     private List<Ingredient> ingredients;
+    /**
+     * This is the description of the recipe.
+     */
     private String description;
 
     /**
      * This is the empty constructor of the class.
      */
     public CalculatedRecipe() {
-        CustomLogService.modelLog("CalculatedRecipe", true);
+        CustomLogService
+                .modelLog("CalculatedRecipe", true);
     }
 
     /**
      * This is the constructor of the class.
      *
-     * @param ingredients the ingredient of the recipe
-     * @param description the description of the recipe
+     * @param newIngredients the list of ingredients of the recipe
+     * @param newDescription the description of the recipe
      */
-    public CalculatedRecipe(List<Ingredient> ingredients, String description) {
-        CustomLogService.modelLog("CalculatedRecipe");
+    public
+    CalculatedRecipe(final List<Ingredient> newIngredients,
+                     final String newDescription) {
+        CustomLogService
+                .modelLog("CalculatedRecipe");
 
-        this.ingredients = ingredients;
-        this.description = description;
+        this.ingredients = newIngredients;
+        this.description = newDescription;
     }
 
     /**
@@ -39,17 +49,19 @@ public class CalculatedRecipe {
      *
      * @return a list of ingredients of the recipe
      */
-    public List<Ingredient> getIngredients() {
+    public final List<Ingredient>
+    getIngredients() {
         return ingredients;
     }
 
     /**
      * Sets the list of ingredients of the recipe.
      *
-     * @param ingredients the list of ingredients of the recipe
+     * @param newIngredients the list of ingredients of the recipe
      */
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
+    public final void
+    setIngredients(final List<Ingredient> newIngredients) {
+        this.ingredients = newIngredients;
     }
 
     /**
@@ -57,16 +69,18 @@ public class CalculatedRecipe {
      *
      * @return the description of the recipe
      */
-    public String getDescription() {
+    public final String
+    getDescription() {
         return description;
     }
 
     /**
      * Sets the description of the recipe.
      *
-     * @param description the description of the recipe
+     * @param newDescription the description of the recipe
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public final void
+    setDescription(final String newDescription) {
+        this.description = newDescription;
     }
 }
