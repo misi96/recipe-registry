@@ -3,10 +3,11 @@ package com.reciperegistry.Entity;
 import com.reciperegistry.Service.CustomLogService;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
+
 
 /**
  * This class is responsible for creating a recipe entity.
@@ -74,33 +75,19 @@ public class Recipe {
     /**
      * This is the constructor of the class.
      *
-     * @param newName             the name of the recipe
-     * @param newCategory         the category of the recipe
-     * @param newCategoryName     the category name of the recipe
-     * @param newDifficulty       the difficulty of the recipe
-     * @param newCookingTime      the cooking time of the recipe
-     * @param newEnergy           the energy of the recipe
-     * @param newNumberOfServings the number of servings of the recipe
-     * @param newDescription      the description of the recipe
+     * @param builder asdadssdasd
      */
-    public Recipe(final String newName,
-                  final Integer newCategory,
-                  final String newCategoryName,
-                  final Integer newDifficulty,
-                  final Integer newCookingTime,
-                  final Integer newEnergy,
-                  final Integer newNumberOfServings,
-                  final String newDescription) {
+    public Recipe(final Builder builder) {
         CustomLogService.entityLog("Recipe");
 
-        this.name = newName;
-        this.category = newCategory;
-        this.categoryName = newCategoryName;
-        this.difficulty = newDifficulty;
-        this.cookingTime = newCookingTime;
-        this.energy = newEnergy;
-        this.numberOfServings = newNumberOfServings;
-        this.description = newDescription;
+        this.name = builder.name;
+        this.category = builder.category;
+        this.categoryName = builder.categoryName;
+        this.difficulty = builder.difficulty;
+        this.cookingTime = builder.cookingTime;
+        this.energy = builder.energy;
+        this.numberOfServings = builder.numberOfServings;
+        this.description = builder.description;
     }
 
     /**
@@ -271,5 +258,137 @@ public class Recipe {
     public final void
     setDescription(final String newDescription) {
         this.description = newDescription;
+    }
+
+    /**
+     * This is the builder class of the recipes.
+     */
+    public static class Builder {
+        /**
+         * This is the name of the recipe.
+         */
+        private String name;
+        /**
+         * This is the category of the recipe.
+         */
+        private Integer category;
+        /**
+         * This is the category name of the recipe.
+         */
+        private String categoryName;
+        /**
+         * This is the difficulty of the recipe.
+         */
+        private Integer difficulty;
+        /**
+         * This is the cooking time of the recipe.
+         */
+        private Integer cookingTime;
+        /**
+         * This is the energy of the recipe.
+         */
+        private Integer energy;
+        /**
+         * This is the number of serving of the recipe.
+         */
+        private Integer numberOfServings;
+        /**
+         * This is the description of the recipe.
+         */
+        private String description;
+
+        /**
+         * This is the main builder method which returns a new recipe.
+         *
+         * @return the new recipe
+         */
+        public final Recipe build() {
+            return new Recipe(this);
+        }
+
+        /**
+         * Sets the category of the recipe and returns the recipe.
+         *
+         * @param newCategory the category of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withCategory(final Integer newCategory) {
+            this.category = newCategory;
+            return this;
+        }
+
+        /**
+         * Sets the category name of the recipe and returns the recipe.
+         *
+         * @param newCategoryName the category name of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withCategoryName(final String newCategoryName) {
+            this.categoryName = newCategoryName;
+            return this;
+        }
+
+        /**
+         * Sets the difficulty of the recipe and returns the recipe.
+         *
+         * @param newDifficulty the difficulty of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withDifficulty(final Integer newDifficulty) {
+            this.difficulty = newDifficulty;
+            return this;
+        }
+
+        /**
+         * Sets the cooking time of the recipe and returns the recipe.
+         *
+         * @param newCookingTime the cooking time of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withCookingTime(final Integer newCookingTime) {
+            this.cookingTime = newCookingTime;
+            return this;
+        }
+
+        /**
+         * Sets the energy of the recipe and returns the recipe.
+         *
+         * @param newEnergy the energy of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withEnergy(final Integer newEnergy) {
+            this.energy = newEnergy;
+            return this;
+        }
+
+        /**
+         * Sets the numerb of servings of the recipe and returns the recipe.
+         *
+         * @param newNumberOfServings the number of servings of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withNumberOfServings(final Integer newNumberOfServings) {
+            this.numberOfServings = newNumberOfServings;
+            return this;
+        }
+
+        /**
+         * Sets the description of the recipe and returns the recipe.
+         *
+         * @param newDescription the description of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withDescription(final String newDescription) {
+            this.description = newDescription;
+            return this;
+        }
+
     }
 }
