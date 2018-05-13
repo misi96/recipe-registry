@@ -26,6 +26,7 @@ a {
     margin: 5px 0 5px;
     &:hover {
       background-color: brown;
+      transition: .6s;
     }
     p {
       margin: 0;
