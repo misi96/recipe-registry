@@ -1,0 +1,35 @@
+#logo-container {
+  font-family: fantasy;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
+}
+
+#navbar-button-container {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+#topbar-title {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-family: monospace;
+  font-size: 30px;
+  justify-content: space-between;
+  p {
+    margin: 0 12px 0;
+  }
+}
+
+#topbar {
+  background: linear-gradient(green, #459e00);
+  box-shadow: 0 8px 6px -6px green;
+  top: 0;
+  z-index: 1000;
+}
+
+@media only screen and (max-width: 640px) {
+  #topbar-title {
+    font-size: 20px;
+  }
+}

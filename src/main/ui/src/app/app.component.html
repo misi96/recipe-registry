@@ -1,13 +1,11 @@
 <div class="ui-g">
-  <div id="navigation-bar" class="ui-md-1 ui-g-1">
-    <app-sidebar></app-sidebar>
+  <app-topbar style="width: 100%"></app-topbar>
+
+  <div id="router-container" class="ui-g-12">
+    <router-outlet style="width: 100%; height: 100%"></router-outlet>
   </div>
 
-  <div class="ui-md-11 ui-g-11">
-    <div class="ui-g-11">
-      <router-outlet style="width: 100%; height: 100%"></router-outlet>
-    </div>
-  </div>
+  <app-footer style="width: 100%;"></app-footer>
 </div>
 
 <p-confirmDialog></p-confirmDialog>

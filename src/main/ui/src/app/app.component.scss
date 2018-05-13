@@ -2,3 +2,19 @@
   display: flex;
   justify-content: center;
 }
+
+#router-container {
+  margin: 60px 80px 60px;
+}
+
+@media only screen and (max-width: 640px) {
+  #router-container {
+    margin: 60px 15px 60px;
+  }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 1024px){
+  #router-container {
+    margin: 60px 50px 60px;
+  }
+}

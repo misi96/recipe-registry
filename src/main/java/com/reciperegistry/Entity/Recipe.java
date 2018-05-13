@@ -18,11 +18,6 @@ import javax.persistence.Column;
 @Table(name = "recipe")
 public class Recipe {
     /**
-     * This is the maximum length of the description field.
-     */
-    private static final Integer MAX_DESCRIPTION_LENGTH = 100;
-
-    /**
      * This is the id of the recipe.
      */
     @Id
@@ -80,6 +75,7 @@ public class Recipe {
     public Recipe(final Builder builder) {
         CustomLogService.entityLog("Recipe");
 
+        this.id = builder.id;
         this.name = builder.name;
         this.category = builder.category;
         this.categoryName = builder.categoryName;
@@ -98,6 +94,16 @@ public class Recipe {
     public final Integer
     getId() {
         return id;
+    }
+
+    /**
+     * Sets the id of the recipe;
+     *
+     * @param newId the id of the recipe
+     */
+    public final void
+    setId(final Integer newId) {
+        this.id = newId;
     }
 
     /**
@@ -265,6 +271,10 @@ public class Recipe {
      */
     public static class Builder {
         /**
+         * This is the id of the recipe.
+         */
+        private Integer id;
+        /**
          * This is the name of the recipe.
          */
         private String name;
@@ -304,6 +314,30 @@ public class Recipe {
          */
         public final Recipe build() {
             return new Recipe(this);
+        }
+
+        /**
+         * Sets the id of the recipe and returns the recipe.
+         *
+         * @param newId the id of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withId(final Integer newId) {
+            this.id = newId;
+            return this;
+        }
+
+        /**
+         * Sets the name of the recipe and returns the recipe.
+         *
+         * @param newName the name of the recipe
+         * @return the recipe
+         */
+        public final Builder
+        withName(final String newName) {
+            this.name = newName;
+            return this;
         }
 
         /**

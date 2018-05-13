@@ -6,28 +6,35 @@
 
     <!--Introduction-->
     <a routerLink="/introduction" routerLinkActive="active" (click)="hideSidebar()">
-      <div class="ui-md-12 ui-g-12">Introduction</div>
+      <div class="ui-md-12 ui-g-12">
+        <p>Introduction</p>
+        <span class="glyphicon glyphicon-info-sign"></span>
+      </div>
     </a>
 
     <!--Recipes-->
     <a routerLink="/recipes" routerLinkActive="active" (click)="hideSidebar()">
-      <div class="ui-md-12 ui-g-12">Recipe list</div>
+      <div class="ui-md-12 ui-g-12">
+        <p>Recipe list</p>
+        <span class="glyphicon glyphicon-list-alt"></span>
+      </div>
     </a>
 
     <!--Serving calculator-->
     <a routerLink="/serving-calculator" routerLinkActive="active" (click)="hideSidebar()">
-      <div class="ui-md-12 ui-g-12">Serving calculator</div>
+      <div class="ui-md-12 ui-g-12">
+        <p>Serving calculator</p>
+        <span class="glyphicon glyphicon-calendar"></span>
+      </div>
     </a>
 
     <!--Statistics-->
     <a routerLink="/statistics" routerLinkActive="active" (click)="hideSidebar()">
-      <div class="ui-md-12 ui-g-12">Statistics</div>
+      <div class="ui-md-12 ui-g-12">
+        <p>Statistics</p>
+        <span class="glyphicon glyphicon-signal"></span>
+      </div>
     </a>
 
   </nav>
 </p-sidebar>
-
-<!--Arrow button-->
-<div class="ui-md-1" style="margin-top: 20px">
-  <button pButton icon="fa-arrow-right" (click)="showSidebar()"></button>
-</div>

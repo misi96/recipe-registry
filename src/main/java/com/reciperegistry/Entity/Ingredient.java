@@ -93,6 +93,16 @@ public class Ingredient {
     }
 
     /**
+     * Sets the id of the recipe.
+     *
+     * @param newId the id of the recipe
+     */
+    public final void
+    setId(final Integer newId) {
+        this.id = newId;
+    }
+
+    /**
      * Returns the name of the ingredient.
      *
      * @return the name of the ingredient

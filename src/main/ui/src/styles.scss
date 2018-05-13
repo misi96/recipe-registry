@@ -1,3 +1,8 @@
+.main-information {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .ui-button {
   font-size: 1.1em;
 }
@@ -60,7 +65,7 @@
 .wrapper {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 3px;
-  margin-top: 1.5em;
+  color: black;
   padding: 10px 20px 10px;
 }
 
@@ -109,7 +114,19 @@ th, td {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 640px) {
+.topbar-and-footer {
+  align-items: center;
+  background-color: #459e00;
+  color: white;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 5px 10px;
+  position: fixed;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
   .responsive-input {
     margin-top: 20px;
   }

@@ -41,6 +41,8 @@ import {RecipeTableComponent} from './components/recipe-table/recipe-table.compo
 import {ServingCalculatorComponent} from './components/serving-calculator/serving-calculator.component';
 import {ChartModule} from 'primeng/chart';
 import { RecipeStatisticsComponent } from './components/recipe-statistics/recipe-statistics.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { RecipeStatisticsComponent } from './components/recipe-statistics/recipe
     IngredientListComponent,
     NewModifyIngredientComponent,
     RecipeTableComponent,
-    RecipeStatisticsComponent
+    RecipeStatisticsComponent,
+    TopbarComponent,
+    FooterComponent
   ],
   imports: [
     AppRoutes,

@@ -8,16 +8,27 @@
   margin-top: 25px;
 }
 
+.menu-icon {
+  background-color: brown;
+}
+
 a {
   div {
-    border-radius: 5px;
+    align-items: center;
     background-color: #459e00;
+    border-radius: 5px;
+    box-shadow: 0 8px 6px -6px green;
     color: white;
     cursor: pointer;
+    display: flex;
     font-size: 1.4em;
+    justify-content: space-between;
     margin: 5px 0 5px;
     &:hover {
       background-color: brown;
+    }
+    p {
+      margin: 0;
     }
   }
 }
@@ -28,27 +39,4 @@ hr {
 
 h2 {
   border-bottom: 1.5px solid grey;
-}
-
-nav {
-  div {
-    .ui-button {
-      background: #459e00 !important;
-      border-color: #459e00 !important;
-      color: white;
-      font-size: 1.5em;
-      text-align: left;
-      width: 100%;
-      &:hover {
-        background: lightcoral !important;
-        border-color: lightcoral !important;
-      }
-    }
-    p {
-      color: black;
-      font-size: 1.5em;
-      margin: 0;
-      text-decoration: none;
-    }
-  }
 }

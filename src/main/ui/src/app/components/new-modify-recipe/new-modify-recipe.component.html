@@ -10,7 +10,7 @@
       <div class="ui-g form-group">
 
         <!--Name-->
-        <div class="ui-md-3 ui-g-12">
+        <div class="ui-lg-3 ui-md-6 ui-g-12 responsive-input">
           <span class="ui-float-label">
             <input id="name" name="name" type="text" [(ngModel)]="displayedRecipe.name" required="true" pInputText>
             <label>Name<span>*</span></label>
@@ -18,7 +18,7 @@
         </div>
 
         <!--Category-->
-        <div class="ui-md-3 ui-g-12 responsive-input">
+        <div class="ui-lg-3 ui-md-6 ui-g-12 responsive-input">
           <span class="ui-float-label">
             <p-dropdown id="category" name="category" [options]="recipeCategories" [(ngModel)]="displayedRecipe.category"
                         [style]="{'width': '100%'}" [required]="true"></p-dropdown>
@@ -27,7 +27,7 @@
         </div>
 
         <!--Cooking time-->
-        <div class="ui-md-3 ui-g-12 responsive-input">
+        <div class="ui-lg-3 ui-md-6 ui-g-12 responsive-input">
           <span class="ui-float-label">
             <p-spinner id="cooking-time" name="cooking-time" [(ngModel)]="displayedRecipe.cookingTime" [min]="0"
                        [style]="{'width': '100%'}"></p-spinner>
@@ -36,7 +36,7 @@
         </div>
 
         <!--Number of servings-->
-        <div class="ui-md-3 ui-g-12 responsive-input">
+        <div class="ui-lg-3 ui-md-6 ui-g-12 responsive-input">
           <span class="ui-float-label">
             <input id="number-of-servings" name="number-of-servings" [(ngModel)]="displayedRecipe.numberOfServings" readonly="true" type="text"
                    pInputText/>
@@ -78,12 +78,12 @@
       <div class="ui-g form-group">
 
         <!--Ingredients-->
-        <div class="ui-md-6 ui-g-12">
+        <div class="ui-lg-6 ui-md-12 ui-g-12">
           <app-ingredient-list #ingredientList (ingredientListChange)="setDisplayedRecipeEnergy($event)"></app-ingredient-list>
         </div>
 
         <!--Description-->
-        <div class="ui-md-6 ui-g-12 responsive-input">
+        <div class="ui-lg-6 ui-md-12 ui-g-12 responsive-input">
           <span class="ui-float-label">
             <textarea id="description" name="description" pInputTextarea rows="10"
                       [(ngModel)]="displayedRecipe.description"></textarea>
