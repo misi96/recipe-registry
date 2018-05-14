@@ -115,7 +115,7 @@ public class ServingCalculatorService {
      * @param numberOfServingsToSet    the chosen number of servings
      * @return a list of the calculated ingredients
      */
-    public List<Ingredient>
+    private List<Ingredient>
     getCalculatedIngredients(final List<Ingredient> ingredients,
                              final Integer originalNumberOfServings,
                              final Integer numberOfServingsToSet) {
