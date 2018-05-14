@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
-import {URLSearchParams} from '@angular/http';
 import {GrowlMessageService} from './services/growl-message.service';
-import {ConfirmationService} from 'primeng/api';
 import {isNullOrUndefined} from 'util';
 import {AdvancedLog} from './services/advanced-log';
 import {HttpClient} from '@angular/common/http';

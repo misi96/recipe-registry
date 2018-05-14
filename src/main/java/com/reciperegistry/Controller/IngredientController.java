@@ -54,10 +54,14 @@ public class IngredientController {
      */
     @GetMapping("list/{id}")
     public final List<Ingredient>
-    getIngredientsByRecipeId(@PathVariable("id") final Integer id) {
+    getIngredientsByRecipeId(@PathVariable("id") final Integer id) throws Exception {
         CustomLogService
                 .controllerLog("ingredient/list/" + id,
                         "IngredientController");
+
+        if (id == null) {
+            throw new Exception("Invalid ingredient ID!");
+        }
 
         return this.ingredientService.getIngredientsByRecipeId(id);
     }
@@ -87,10 +91,14 @@ public class IngredientController {
      */
     @GetMapping("get/{id}")
     public final Ingredient
-    getIngredientById(@PathVariable("id") final Integer id) {
+    getIngredientById(@PathVariable("id") final Integer id) throws Exception {
         CustomLogService
                 .controllerLog("ingredient/get/" + id,
                         "IngredientController");
+
+        if (id == null) {
+            throw new Exception("Invalid ingredient ID!");
+        }
 
         return this.ingredientService.getIngredientById(id);
     }
@@ -103,10 +111,14 @@ public class IngredientController {
      */
     @DeleteMapping("delete/{id}")
     public final void
-    deleteIngredientById(@PathVariable("id") final Integer id) {
+    deleteIngredientById(@PathVariable("id") final Integer id) throws Exception {
         CustomLogService
                 .controllerLog("ingredient/delete/" + id,
                         "IngredientController");
+
+        if (id == null) {
+            throw new Exception("Invalid ingredient ID!");
+        }
 
         this.ingredientService.deleteIngredientById(id);
     }

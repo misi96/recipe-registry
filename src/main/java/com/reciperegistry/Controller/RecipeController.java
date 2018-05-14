@@ -4,13 +4,13 @@ import com.reciperegistry.Entity.Recipe;
 import com.reciperegistry.Service.CustomLogService;
 import com.reciperegistry.Service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -54,10 +54,14 @@ public class RecipeController {
      */
     @GetMapping("get/{id}")
     public final Recipe
-    getRecipeById(@PathVariable("id") final Integer id) {
+    getRecipeById(@PathVariable("id") final Integer id) throws Exception {
         CustomLogService
                 .controllerLog("recipe/get/" + id,
                         "RecipeController");
+
+        if (id == null) {
+            throw new Exception("Invalid recipe ID!");
+        }
 
         return this.recipeService.getRecipeById(id);
     }
@@ -70,10 +74,14 @@ public class RecipeController {
      */
     @DeleteMapping("delete/{id}")
     public final void
-    deleteRecipeById(@PathVariable("id") final Integer id) {
+    deleteRecipeById(@PathVariable("id") final Integer id) throws Exception {
         CustomLogService
                 .controllerLog("recipe/delete/" + id,
-                "RecipeController");
+                        "RecipeController");
+
+        if (id == null) {
+            throw new Exception("Invalid recipe ID!");
+        }
 
         this.recipeService.deleteRecipeById(id);
     }
@@ -86,11 +94,11 @@ public class RecipeController {
      * @return the updated recipe
      */
     @PutMapping("update")
-    public final
-    Recipe updateRecipe(@RequestBody final Recipe recipe) {
+    public final Recipe
+    updateRecipe(@RequestBody final Recipe recipe) {
         CustomLogService
                 .controllerLog("recipe/update",
-                "RecipeController");
+                        "RecipeController");
 
         return this.recipeService.updateRecipe(recipe);
     }
@@ -103,11 +111,11 @@ public class RecipeController {
      * @return the inserted recipe
      */
     @PostMapping("add")
-    public final
-    Recipe insertRecipe(@RequestBody final Recipe recipe) {
+    public final Recipe
+    insertRecipe(@RequestBody final Recipe recipe) {
         CustomLogService
                 .controllerLog("recipe/add",
-                "RecipeController");
+                        "RecipeController");
 
         return this.recipeService.insertRecipe(recipe);
     }
